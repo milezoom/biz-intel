@@ -21,7 +21,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'title' => ['text' => 'Banyak Pendapatan']
             ],
             'series' => [
-                ['data' => $pendapatan],
+                [
+                    'type' => 'column',
+                    'data' => $pendapatan,
+                    'showInLegend' => false,
+                ],
+                [
+                    'type' => 'spline',
+                    'data' => $pendapatan,
+                    'showInLegend' => false,
+                ],
             ],            
         ],
         'scripts' => [
