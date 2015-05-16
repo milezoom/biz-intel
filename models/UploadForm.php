@@ -33,7 +33,8 @@ class UploadForm extends Model
                  'application/csv',
                  'application/excel',
                  'application/vnd.ms-excel',
-                 'application/vnd.msexcel'
+                 'application/vnd.msexcel',
+                 'application/octet-stream'
              ]],
         ];
     }
