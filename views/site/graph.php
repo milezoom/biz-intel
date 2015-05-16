@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],            
         ],
         'scripts' => [
-            'themes/dark-unica'
+            'themes/sand-signika'
         ]
     ]);
     ?>
