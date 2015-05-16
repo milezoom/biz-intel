@@ -24,18 +24,7 @@ class UploadForm extends Model
              'file', 
              'checkExtensionByMimeType' => false,
              'extensions' => 'csv',
-             'mimeTypes' => [
-                 'text/plain',
-                 'text/csv',
-                 'application/csv',
-                 'text/comma-separated-values',
-                 'text/csv',
-                 'application/csv',
-                 'application/excel',
-                 'application/vnd.ms-excel',
-                 'application/vnd.msexcel',
-                 'application/octet-stream'
-             ]],
+            ],
         ];
     }
 }

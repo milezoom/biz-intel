@@ -18,12 +18,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'categories' => $tahun
             ],
             'yAxis' => [
-                'title' => ['text' => 'Banyak Pendapatan']
+                'title' => ['text' => 'Banyak Pendapatan (dalam Rupiah)']
             ],
             'series' => [
                 [
                     'type' => 'column',
                     'data' => $pendapatan,
+                    'name' => 'Pendapatan Tokomedia',
                     'showInLegend' => false,
                 ],
                 [
