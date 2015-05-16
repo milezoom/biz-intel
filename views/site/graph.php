@@ -12,16 +12,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php
     echo Highcharts::widget([
         'options' => [
-            'title' => ['text' => 'Fruit Consumption'],
+            'title' => ['text' => 'Keuntungan Tokomedia'],
             'xAxis' => [
-                'categories' => ['Apples', 'Bananas', 'Oranges']
+                'title' => ['text' => 'Tahun'],
+                'categories' => $tahun
             ],
             'yAxis' => [
-                'title' => ['text' => 'Fruit eaten']
+                'title' => ['text' => 'Banyak Pendapatan']
             ],
             'series' => [
-                ['name' => 'Jane', 'data' => [1, 0, 4]],
-                ['name' => 'John', 'data' => [5, 7, 3]]
+                ['data' => $pendapatan],
             ],            
         ],
         'scripts' => [
