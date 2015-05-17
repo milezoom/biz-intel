@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use miloschuman\highcharts\Highcharts;
 
 /* @var $this yii\web\View */
-$this->title = 'Graph';
+$this->title = 'Keuntungan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],            
         ],
         'scripts' => [
-            'themes/sand-signika'
+            'themes/gray'
         ]
     ]);
     ?>
