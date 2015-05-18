@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\models\UploadForm;
 use app\models\Keuntungan;
 use app\models\Performance;
+use app\models\PerformanceSearch;
 use app\models\Awareness;
 
 class SiteController extends Controller
@@ -117,40 +118,42 @@ class SiteController extends Controller
     
     public function actionAwareness()
     {
-        $awareYaLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 't'])->count();
-        $awareYaPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 't'])->count();
-        $awareTdLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 'f'])->count();
-        $awareTdPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 'f'])->count();
-        $awareYaBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 't'])->count();
-        $awareTdBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 'f'])->count();
-        $awareYaBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 't'])->count();
-        $awareTdBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 'f'])->count();
-        $awareYaSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 't'])->count();
-        $awareTdSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 'f'])->count();
-        $awareYaPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 't'])->count();
-        $awareTdPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 'f'])->count();
-        $awareYaDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 't'])->count();
-        $awareTdDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 'f'])->count();
-        $awareYaLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 't'])->count();
-        $awareTdLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 'f'])->count();
-        $awareYaJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 't'])->count();
-        $awareTdJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 'f'])->count();
-        $awareYaPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 't'])->count();
-        $awareTdPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 'f'])->count();
-        $awareYaTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 't'])->count();
-        $awareTdTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 'f'])->count();
-        $awareYaSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 't'])->count();
-        $awareTdSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 'f'])->count();
-        $awareYaAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 't'])->count();
-        $awareTdAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 'f'])->count();
-        $awareYaBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 't'])->count();
-        $awareTdBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 'f'])->count();
-        $awareYaBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 't'])->count();
-        $awareTdBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 'f'])->count();
-        $awareYaMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 't'])->count();
-        $awareTdMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 'f'])->count();
-        $awareYaJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 't'])->count();
-        $awareTdJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 'f'])->count();
+        $model = new Awareness();
+        $awareYaLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 1])->count();
+        $awareYaPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 1])->count();
+        $awareTdLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 0])->count();
+        $awareTdPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 0])->count();
+        $awareYaBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 1])->count();
+        $awareTdBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 0])->count();
+        $awareYaBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 1])->count();
+        $awareTdBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 0])->count();
+        $awareYaSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 1])->count();
+        $awareTdSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 0])->count();
+        $awareYaPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 1])->count();
+        $awareTdPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 0])->count();
+        $awareYaDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 1])->count();
+        $awareTdDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 0])->count();
+        $awareYaLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 1])->count();
+        $awareTdLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 0])->count();
+        $awareYaJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 1])->count();
+        $awareTdJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 0])->count();
+        $awareYaPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 1])->count();
+        $awareTdPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 0])->count();
+        $awareYaTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 1])->count();
+        $awareTdTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 0])->count();
+        $awareYaSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 1])->count();
+        $awareTdSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 0])->count();
+        $awareYaAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 1])->count();
+        $awareTdAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 0])->count();
+        $awareYaBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 1])->count();
+        $awareTdBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 0])->count();
+        $awareYaBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 1])->count();
+        $awareTdBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 0])->count();
+        $awareYaMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 1])->count();
+        $awareTdMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 0])->count();
+        $awareYaJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 1])->count();
+        $awareTdJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 0])->count();
+        
         return $this->render('awareness',[
             'awareYaLk' => $awareYaLk,
             'awareYaPr' => $awareYaPr,
@@ -191,7 +194,22 @@ class SiteController extends Controller
                 "depok","lombok","jakarta","palembang",
                 "tangerang","surabaya","aceh","bekasi",
                 "bogor","medan","jogjakarta"),
-            'jenis_kelamin' => array("laki-laki","perempuan")
+            'jenis_kelamin' => array("laki-laki","perempuan"),
+        ]);
+    }
+    
+    public function actionPerformance()
+    {
+        $divisi = PerformanceSearch::getListDivisi();
+        
+        $listSDMByDivisi = PerformanceSearch::getDataByDivisi();
+        
+        $countSDMByLamaKerja = PerformanceSearch::getCountByLamaKerja();
+        
+        return $this->render('performance',[
+            'divisi' => $divisi,
+            'listSDM' => $listSDMByDivisi,
+            'countLamaKerja' => $countSDMByLamaKerja
         ]);
     }
     
