@@ -6,7 +6,7 @@ use miloschuman\highcharts\Highcharts;
 $this->title = 'Keuntungan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
+<div class="site-keuntungan">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php

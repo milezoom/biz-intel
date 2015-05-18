@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php else: ?>
-
     <p>
         If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
     </p>
