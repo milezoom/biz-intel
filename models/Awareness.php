@@ -6,7 +6,9 @@ use yii\db\ActiveRecord;
 use yii\db\Schema;
 
 class Awareness extends ActiveRecord
-{    
+{
+    public $awal;
+    public $akhir;
     /**
      * @inheritdoc
      */
@@ -21,8 +23,10 @@ class Awareness extends ActiveRecord
     public function rules()
     {
         return [
-            [['nama','umur','jenis_kelamin','daerah','is_know'], 'required'],
+            [['nama','umur','jenis_kelamin','daerah','is_know','awal','akhir'], 'required'],
             [['umur'], 'integer'],
+            [['awal'], 'integer'],
+            [['akhir'], 'integer'],
             [['nama'], 'string', 'max' => 35],
             [['jenis_kelamin'], 'string', 'max' => 10],
             [['daerah'], 'string', 'max' => 20],
