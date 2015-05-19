@@ -115,83 +115,83 @@ class SiteController extends Controller
             'pendapatan' => $pendapatan,
         ]);
     }
-    
+
     public function actionAwareness()
     {
         $model = new Awareness();
         if($model->load(Yii::$app->request->post())){
-        $awareYaLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareYaJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $awareTdJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
-        $range = 'Pada Range Umur'.$model->awal.' sampai '.$model->akhir.'';
+            $awareYaLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareYaJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 1])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $awareTdJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 0])->andWhere('umur between '.$model->awal.' and '.$model->akhir.'')->count();
+            $range = 'Pada Range Umur'.$model->awal.' sampai '.$model->akhir.'';
         }
         else{
             $awareYaLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 1])->count();
-        $awareYaPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 1])->count();
-        $awareTdLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 0])->count();
-        $awareTdPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 0])->count();
-        $awareYaBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 1])->count();
-        $awareTdBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 0])->count();
-        $awareYaBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 1])->count();
-        $awareTdBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 0])->count();
-        $awareYaSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 1])->count();
-        $awareTdSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 0])->count();
-        $awareYaPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 1])->count();
-        $awareTdPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 0])->count();
-        $awareYaDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 1])->count();
-        $awareTdDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 0])->count();
-        $awareYaLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 1])->count();
-        $awareTdLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 0])->count();
-        $awareYaJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 1])->count();
-        $awareTdJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 0])->count();
-        $awareYaPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 1])->count();
-        $awareTdPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 0])->count();
-        $awareYaTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 1])->count();
-        $awareTdTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 0])->count();
-        $awareYaSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 1])->count();
-        $awareTdSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 0])->count();
-        $awareYaAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 1])->count();
-        $awareTdAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 0])->count();
-        $awareYaBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 1])->count();
-        $awareTdBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 0])->count();
-        $awareYaBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 1])->count();
-        $awareTdBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 0])->count();
-        $awareYaMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 1])->count();
-        $awareTdMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 0])->count();
-        $awareYaJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 1])->count();
-        $awareTdJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 0])->count();
-        $range = '';
+            $awareYaPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 1])->count();
+            $awareTdLk = Awareness::find()->where(['jenis_kelamin' => 'laki-laki','is_know' => 0])->count();
+            $awareTdPr = Awareness::find()->where(['jenis_kelamin' => 'perempuan','is_know' => 0])->count();
+            $awareYaBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 1])->count();
+            $awareTdBali = Awareness::find()->where(['daerah' => 'bali','is_know' => 0])->count();
+            $awareYaBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 1])->count();
+            $awareTdBdg = Awareness::find()->where(['daerah' => 'bandung','is_know' => 0])->count();
+            $awareYaSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 1])->count();
+            $awareTdSolo = Awareness::find()->where(['daerah' => 'solo','is_know' => 0])->count();
+            $awareYaPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 1])->count();
+            $awareTdPdg = Awareness::find()->where(['daerah' => 'padang','is_know' => 0])->count();
+            $awareYaDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 1])->count();
+            $awareTdDpk = Awareness::find()->where(['daerah' => 'depok','is_know' => 0])->count();
+            $awareYaLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 1])->count();
+            $awareTdLmk = Awareness::find()->where(['daerah' => 'lombok','is_know' => 0])->count();
+            $awareYaJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 1])->count();
+            $awareTdJkt = Awareness::find()->where(['daerah' => 'jakarta','is_know' => 0])->count();
+            $awareYaPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 1])->count();
+            $awareTdPbg = Awareness::find()->where(['daerah' => 'palembang','is_know' => 0])->count();
+            $awareYaTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 1])->count();
+            $awareTdTgr = Awareness::find()->where(['daerah' => 'tangerang','is_know' => 0])->count();
+            $awareYaSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 1])->count();
+            $awareTdSby = Awareness::find()->where(['daerah' => 'surabaya','is_know' => 0])->count();
+            $awareYaAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 1])->count();
+            $awareTdAceh = Awareness::find()->where(['daerah' => 'aceh','is_know' => 0])->count();
+            $awareYaBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 1])->count();
+            $awareTdBks = Awareness::find()->where(['daerah' => 'bekasi','is_know' => 0])->count();
+            $awareYaBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 1])->count();
+            $awareTdBgr = Awareness::find()->where(['daerah' => 'bogor','is_know' => 0])->count();
+            $awareYaMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 1])->count();
+            $awareTdMdn = Awareness::find()->where(['daerah' => 'medan','is_know' => 0])->count();
+            $awareYaJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 1])->count();
+            $awareTdJgk = Awareness::find()->where(['daerah' => 'jogjakarta','is_know' => 0])->count();
+            $range = '';
         }
         return $this->render('awareness',[
             'awareYaLk' => $awareYaLk,
@@ -237,22 +237,23 @@ class SiteController extends Controller
             'range'=>$range,
         ]);
     }
-    
+
     public function actionPerformance()
     {
         $divisi = PerformanceSearch::getListDivisi();
-        
+
         $listSDMByDivisi = PerformanceSearch::getDataByDivisi();
-        
+
         $countSDMByLamaKerja = PerformanceSearch::getCountByLamaKerja();
-        
+
         return $this->render('performance',[
             'divisi' => $divisi,
             'listSDM' => $listSDMByDivisi,
-            'countLamaKerja' => $countSDMByLamaKerja
+            'countLamaKerja' => $countSDMByLamaKerja,
+            'selectedDivision' => "Design"
         ]);
     }
-    
+
     public function actionUpload()
     {
         $model = new UploadForm();
@@ -274,9 +275,14 @@ class SiteController extends Controller
     {
         $location = glob(Yii::getAlias('@realdir')."/web/uploads/".$filename.".csv")[0];
         $file = fopen($location, "r");
-
+        $connection = \Yii::$app->db;
         $counter = 0;
         if($filename == "keuntungan") {
+            if($connection->createCommand("SELECT * FROM keuntungan")->queryOne() != NULL)
+            {
+                $connection->createCommand("DELETE FROM keuntungan")->execute();
+            }
+
             while(!feof($file)) {
                 if($counter > 0) {
                     $data = fgetcsv($file);
@@ -289,6 +295,10 @@ class SiteController extends Controller
             }
             return $this->redirect(['keuntungan']);
         } elseif($filename == "performance") {
+            if($connection->createCommand("SELECT * FROM performance")->queryOne() != NULL)
+            {
+                $connection->createCommand("DELETE FROM performance")->execute();
+            }
             while(!feof($file)) {
                 if($counter > 0) {
                     $data = fgetcsv($file);
@@ -307,6 +317,10 @@ class SiteController extends Controller
             }
             return $this->redirect(['performance']);
         } elseif($filename == "awareness") {
+            if($connection->createCommand("SELECT * FROM awareness")->queryOne() != NULL)
+            {
+                $connection->createCommand("DELETE FROM awareness")->execute();
+            }
             while(!feof($file)) {
                 if($counter > 0) {
                     $data = fgetcsv($file);
@@ -316,13 +330,15 @@ class SiteController extends Controller
                     $model->jenis_kelamin = $data[2];
                     $model->daerah = $data[3];
                     $model->is_know = $data[4];
+                    $model->awal = 0;
+                    $model->akhir = 0;
                     $model->save();
                 }
                 $counter = $counter + 1;
             }
             return $this->redirect(['awareness']);
         }
-        
+
         fclose($file);
 
         unlink($location);

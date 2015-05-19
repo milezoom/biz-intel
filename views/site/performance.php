@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 use miloschuman\highcharts\Highcharts;
 
 /* @var $this yii\web\View */
@@ -26,8 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
     array_push($dataPie2,["antara 6 - 12 bulan",$countLamaKerja["6-12"]]);
     array_push($dataPie2,["lebih dari 12 bulan",$countLamaKerja[">12"]]); 
 
-
-    $selectedDivision = "Engineer";
     $selectedCriterion = "performa";
 
     $dataColumnNilai = array();
