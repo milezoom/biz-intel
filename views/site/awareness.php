@@ -13,15 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-keuntungan">
     <h1><?= Html::encode($this->title) ?></h1>
     <?php $form = ActiveForm::begin(); ?>
-
     <?= $form->field($model, 'awal')->dropDownList(
-        arrayHelper::map(Awareness::find()->all(), 'umur', 'umur'),
-        ['prompt'=>'Pilih Range Awal']
+        arrayHelper::map(Awareness::find()->orderBy('umur')->all(), 'umur', 'umur'),
+        ['prompt'=>'Pilih Batas Bawah']
     ) ?>
-
     <?= $form->field($model, 'akhir')->dropDownList(
-        arrayHelper::map(Awareness::find()->all(), 'umur', 'umur'),
-        ['prompt'=>'Pilih Range Akhir']
+        arrayHelper::map(Awareness::find()->orderBy('umur')->all(), 'umur', 'umur'),
+        ['prompt'=>'Pilih Batas Atas']
     ) ?>
     <div class="form-group">
         <?= Html::submitButton('Update', ['class' => 'btn btn-primary']) ?>

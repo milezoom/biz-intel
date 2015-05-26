@@ -240,18 +240,39 @@ class SiteController extends Controller
 
     public function actionPerformance()
     {
-        $divisi = PerformanceSearch::getListDivisi();
+        $model = new Performance();
+        if($model->load(Yii::$app->request->post())){
+            $divisi = PerformanceSearch::getListDivisi();
 
-        $listSDMByDivisi = PerformanceSearch::getDataByDivisi();
+            $listSDMByDivisi = PerformanceSearch::getDataByDivisi();
 
-        $countSDMByLamaKerja = PerformanceSearch::getCountByLamaKerja();
+            $countSDMByLamaKerja = PerformanceSearch::getCountByLamaKerja();
 
-        return $this->render('performance',[
-            'divisi' => $divisi,
-            'listSDM' => $listSDMByDivisi,
-            'countLamaKerja' => $countSDMByLamaKerja,
-            'selectedDivision' => "Design"
-        ]);
+            return $this->render('performance',[
+                'divisi' => $divisi,
+                'listSDM' => $listSDMByDivisi,
+                'countLamaKerja' => $countSDMByLamaKerja,
+                'selectedDivision' => $model->div,
+                'selectedCriterion' => $model->kriteria,
+                'model'=>$model,
+
+            ]);
+        } else {
+            $divisi = PerformanceSearch::getListDivisi();
+
+            $listSDMByDivisi = PerformanceSearch::getDataByDivisi();
+
+            $countSDMByLamaKerja = PerformanceSearch::getCountByLamaKerja();
+
+            return $this->render('performance',[
+                'divisi' => $divisi,
+                'listSDM' => $listSDMByDivisi,
+                'countLamaKerja' => $countSDMByLamaKerja,
+                'selectedDivision' => "Design",
+                'selectedCriterion' => "kedisiplinan",
+                'model'=>$model,
+            ]);
+        }
     }
 
     public function actionUpload()
@@ -311,6 +332,8 @@ class SiteController extends Controller
                     $model->kepemimpinan = $data[5];
                     $model->kedisiplinan = $data[6];
                     $model->time_management = $data[7];
+                    $model->div='';
+                    $model->kriteria='';
                     $model->save();
                 }
                 $counter = $counter + 1;

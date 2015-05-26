@@ -9,6 +9,8 @@ class Performance extends ActiveRecord
     /**
      * @inheritdoc
      */
+    public $div;
+    public $kriteria;
     public static function tableName()
     {
         return 'performance';
@@ -21,8 +23,10 @@ class Performance extends ActiveRecord
     {
         return [
             [['divisi', 'nama', 'jenis_pekerjaan'], 'required'],
-            [['lama_kerja', 'performa', 'kepemimpinan', 'kedisplinan', 'time_management'], 'integer'],
+            [['lama_kerja', 'performa', 'kepemimpinan', 'kedisiplinan', 'time_management'], 'integer'],
             [['divisi'], 'string', 'max' => 30],
+            [['div'], 'string', 'max' => 30],
+            [['kriteria'], 'string', 'max' => 30],
             [['nama'], 'string', 'max' => 35],
             [['jenis_pekerjaan'], 'string', 'max' => 55]
         ];
@@ -42,6 +46,8 @@ class Performance extends ActiveRecord
             'kepemimpinan' => 'Nilai Kepemimpinan',
             'kedisiplinan' => 'Nilai Kedisiplinan',
             'time_management' => 'Nilai Kemampuan Mengatur Waktu',
+            'div' => 'Pilih Divisi',
+            'kriteria' => 'Pilih Kriteria',
         ];
     }
 }

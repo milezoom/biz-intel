@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use app\models\Performance;
 use miloschuman\highcharts\Highcharts;
 
 /* @var $this yii\web\View */
@@ -28,18 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
     array_push($dataPie2,["antara 6 - 12 bulan",$countLamaKerja["6-12"]]);
     array_push($dataPie2,["lebih dari 12 bulan",$countLamaKerja[">12"]]); 
 
-    $selectedCriterion = "performa";
+    try{
+        $dataColumnNilai = array();
+        foreach($listSDM[$selectedDivision] as $data){
+            array_push($dataColumnNilai,$data[$selectedCriterion]);
+        }
 
-    $dataColumnNilai = array();
-    foreach($listSDM[$selectedDivision] as $data){
-        array_push($dataColumnNilai,$data[$selectedCriterion]);
-    }
-
-    $dataColumnNama = array();
-    foreach($listSDM[$selectedDivision] as $data){
-        array_push($dataColumnNama,$data["nama"]);
-    }
-    sort($dataColumnNama);
+        $dataColumnNama = array();
+        foreach($listSDM[$selectedDivision] as $data){
+            array_push($dataColumnNama,$data["nama"]);
+        }
+        sort($dataColumnNama);
+    } catch(Exception $e){}
     
     ?>
     <div class="container">
@@ -84,8 +85,20 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
         <br/><br/><br/>
+        
+        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+        <?= $form->field($model, 'div')->dropDownList(
+        arrayHelper::map(Performance::find()->orderBy('divisi')->all(), 'divisi', 'divisi'),
+        ['prompt'=>'pilih divisi']
+        ) ?>
+        <?= $form->field($model, 'kriteria')->textInput(['max'=>10,'placeholder'=>'masukan: "performa","kepemimpinan","kedisiplinan" atau "time management"']) ?>
+    <button class="btn btn-primary">Submit</button>
+        <br><br>
+    <?php ActiveForm::end(); ?>
+        
         <div class="row">
             <?php
+            try{
                 echo Highcharts::widget([
                     'options' => [
                         'title' => ['text' => 'Penilaian '.$selectedCriterion.' Karyawan dari divisi '.$selectedDivision],
@@ -114,6 +127,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'themes/gray'
                     ]
                 ]);
+            } catch(Exception $e){}
                 ?>
         </div>
     </div>    
